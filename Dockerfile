@@ -33,3 +33,16 @@ RUN git config --global --add safe.directory '*' && \
     git config --global http.postBuffer 524288000
 
 RUN install-custom-nodes /project-config/custom-nodes.txt
+
+# The Qwen3 custom node requires a newer Hugging Face stack than the base image.
+# Keep torch/comfy pinned by the base image and only upgrade the Qwen3-related
+# Python packages needed by ComfyUI_Qwen3-VL-Instruct.
+RUN python3 -m pip install --no-cache-dir --upgrade \
+    "transformers>=4.57.1" \
+    huggingface_hub \
+    accelerate \
+    optimum \
+    av \
+    qwen-vl-utils \
+    opencv-python \
+    bitsandbytes

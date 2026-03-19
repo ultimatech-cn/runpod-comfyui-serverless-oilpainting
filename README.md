@@ -75,6 +75,29 @@ runpod-comfyui-serverless-oilpainting/
 - Keep workflow model names aligned with the Hugging Face filenames in `project-config/model-manifest.txt`.
 - Use `project-config/model-truth.md` when auditing model identity or changing download sources.
 
+## Hugging Face Auth
+
+Some models return `401` until both conditions are met:
+
+- you accepted the model license on Hugging Face
+- you exported `HF_TOKEN` inside the temporary pod shell
+
+Example:
+
+```bash
+export HF_TOKEN=hf_xxx_your_token_here
+bash scripts/download-models-to-volume.sh /workspace project-config/model-manifest.txt /tmp/download-models-failed.txt
+```
+
+For a single protected file:
+
+```bash
+curl -L --fail \
+  -H "Authorization: Bearer ${HF_TOKEN}" \
+  -o /workspace/models/unet/flux-2-klein-9b.safetensors \
+  "https://huggingface.co/black-forest-labs/FLUX.2-klein-9B/resolve/main/flux-2-klein-9b.safetensors"
+```
+
 ## Request Contract
 
 Use RunPod input shaped like:

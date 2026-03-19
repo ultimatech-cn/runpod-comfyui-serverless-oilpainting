@@ -1,0 +1,812 @@
+{
+  "input": {
+    "images": [
+      {
+        "name": "client_input.jpg",
+        "image": "https://example.com/replace-with-your-input-image.jpg"
+      }
+    ],
+    "workflow": {
+      "78": {
+        "inputs": {
+          "image": [
+            "254",
+            0
+          ]
+        },
+        "class_type": "FluxKontextImageScale",
+        "_meta": {
+          "title": "FluxKontextImageScale"
+        }
+      },
+      "87": {
+        "inputs": {
+          "text": "# 角色设定\n你是一位顶级的 AI 图像提示词工程师，同时也是 17 世纪欧洲宫廷“巴洛克风格（Baroque-style）”的御用宠物肖像油画大师。你的任务是分析用户上传的宠物照片，仅仅提取其【面部和胸部特征】，并输出一段中文生图提示词，将其转化为一幅极具古典厚重感、纯手工绘制质感的巴洛克宠物油画。\n\n# 核心红线（绝对不可违背，关乎商业生死）\n- **【强制趴卧姿态与拒绝拟人化（核心新增）】** 宠物必须是**自然趴卧（Lying down）**的姿态。**绝对禁止任何拟人化的坐姿或站姿（No human-like sitting poses）！** 绝不能画成“人的身体+动物的头”。它必须保持动物真实的骨骼体态。\n- **【服饰前襟微敞（核心新增）】** 披着的长袍或斗篷在胸前必须是**微微敞开的（slightly open at the front）**，自然露出宠物胸颈部位的毛发。绝不能像人类西装那样紧紧扣死。\n- **【严禁写实与摄影感】** 画面必须是 100% 的巴洛克古典油画。极强的绘画感（Highly painterly）、浓重的笔触（Thick brushstrokes），拒绝摄影感。\n- **【无视原图环境】** 完全无视原图的背景、人类或任何现代物品。\n\n# 输出结构要求（必须按此逻辑顺序输出一段连贯的中文，无需解释）\n\n1. **基础设定与构图：**\n   开篇明确宠物的品种和面部神态。指定比例为 9:11 竖屏。明确这是一幅“极具戏剧性、笔触厚重的纯正巴洛克风格古典宠物肖像油画”。\n\n2. **核心场景与趴卧姿势（必须严格套用以下描述）：**\n   - **底座与姿态：** 宠物极其优雅地**趴卧（Lying gracefully）**在一个极其华丽的巴洛克风格装饰性天鹅绒靠垫上。\n   - **敞开的斗篷（重点遮挡与透气）：** 宠物的后背和两侧披着一件极其奢华的巴洛克皇家纯色斗篷/长袍（如深酒红、暗金或墨绿色天鹅绒，可带金线刺绣或皮草滚边）。**明确指出：斗篷的前襟是微微敞开的（The cloak is slightly open at the front），自然地露出了宠物高贵的头部、颈部和胸前的毛发，而其身躯的后半部分和两侧则严严实实地被华丽的斗篷覆盖。**（注：不要详细描写爪子的花纹，以防出错）。\n\n3. **面部刻画与极致巴洛克绘画肌理（Painterly）：**\n   - 忠实还原宠物脸部和胸前露出的自然毛发特征。\n   - 强调面部和毛发完全是由“清晰可见的大师级厚涂油画笔触（visible heavy impasto brushstrokes）”构成的。运用达芬奇晕涂法（Sfumato），使边缘柔和。绝不能像真实动物的毛发，必须像是在画布上用颜料堆叠出来的艺术品。\n\n4. **巴洛克背景与戏剧性光影：**\n   - **背景：** 极度简化、深邃的巴洛克暗调背景（如深褐色、暗黑色的纯色渐变，或隐没在漆黑阴影中的模糊帷幔）。绝不能有具体的建筑线条。\n   - **光影：** 采用强烈的伦勃朗式明暗对照法（Dramatic Chiaroscuro），一束温暖的侧光精准照亮宠物的面部、胸前露出的毛发以及微微敞开的华丽斗篷边缘，背景完全隐没在黑暗中。",
+          "model": "Qwen3-VL-4B-Instruct",
+          "quantization": "none",
+          "keep_model_loaded": false,
+          "temperature": 0.7,
+          "max_new_tokens": 2048,
+          "min_pixels": 200704,
+          "max_pixels": 1003520,
+          "seed": 1285,
+          "attention": "sdpa",
+          "image": [
+            "78",
+            0
+          ]
+        },
+        "class_type": "Qwen3_VQA",
+        "_meta": {
+          "title": "Qwen3 VQA"
+        }
+      },
+      "125": {
+        "inputs": {
+          "text": "一只优雅的杰克罗素梗犬，面部神态高贵而略带好奇，眼神深邃，鼻头湿润，毛发黑白相间，胸前毛发自然蓬松。比例为9:11竖屏，这是一幅极具戏剧性、笔触厚重的纯正巴洛克风格古典宠物肖像油画。\n\n宠物极其优雅地趴卧在一个极其华丽的巴洛克风格装饰性天鹅绒靠垫上。宠物的后背和两侧披着一件极其奢华的巴洛克皇家纯色斗篷/长袍（深酒红天鹅绒，饰以金线刺绣与皮草滚边），斗篷的前襟是微微敞开的（The cloak is slightly open at the front），自然地露出了宠物高贵的头部、颈部和胸前的毛发，而其身躯的后半部分和两侧则严严实实地被华丽的斗篷覆盖。\n\n面部和胸前露出的毛发完全是由“清晰可见的大师级厚涂油画笔触（visible heavy impasto brushstrokes）”构成的，运用达芬奇晕涂法（Sfumato），使边缘柔和。绝不能像真实动物的毛发，必须像是在画布上用颜料堆叠出来的艺术品。\n\n背景极度简化、深邃的巴洛克暗调背景（深褐色与暗黑色的纯色渐变，隐没在漆黑阴影中的模糊帷幔），绝不能有具体的建筑线条。采用强烈的伦勃朗式明暗对照法（Dramatic Chiaroscuro），一束温暖的侧光精准照亮宠物的面部、胸前露出的毛发以及微微敞开的华丽斗篷边缘，背景完全隐没在黑暗中。",
+          "anything": [
+            "188",
+            0
+          ]
+        },
+        "class_type": "easy showAnything",
+        "_meta": {
+          "title": "Show Any"
+        }
+      },
+      "188": {
+        "inputs": {
+          "purge_cache": true,
+          "purge_models": true,
+          "anything": [
+            "87",
+            0
+          ]
+        },
+        "class_type": "LayerUtility: PurgeVRAM V2",
+        "_meta": {
+          "title": "LayerUtility: Purge VRAM V2"
+        }
+      },
+      "227": {
+        "inputs": {
+          "any_01": [
+            "78",
+            0
+          ]
+        },
+        "class_type": "Any Switch (rgthree)",
+        "_meta": {
+          "title": "Any Switch (rgthree)"
+        }
+      },
+      "228": {
+        "inputs": {
+          "seed": 527148536611383,
+          "steps": 8,
+          "cfg": 1,
+          "sampler_name": "euler",
+          "scheduler": "simple",
+          "denoise": 1,
+          "model": [
+            "234",
+            0
+          ],
+          "positive": [
+            "244",
+            0
+          ],
+          "negative": [
+            "245",
+            0
+          ],
+          "latent_image": [
+            "252",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "229": {
+        "inputs": {
+          "samples": [
+            "228",
+            0
+          ],
+          "vae": [
+            "232",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAE Decode"
+        }
+      },
+      "231": {
+        "inputs": {
+          "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+          "type": "qwen_image",
+          "device": "default"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "Load CLIP"
+        }
+      },
+      "232": {
+        "inputs": {
+          "vae_name": "qwen_image_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "Load VAE"
+        }
+      },
+      "233": {
+        "inputs": {
+          "shift": 3.1000000000000005,
+          "model": [
+            "237",
+            0
+          ]
+        },
+        "class_type": "ModelSamplingAuraFlow",
+        "_meta": {
+          "title": "ModelSamplingAuraFlow"
+        }
+      },
+      "234": {
+        "inputs": {
+          "strength": 1.0000000000000002,
+          "model": [
+            "233",
+            0
+          ]
+        },
+        "class_type": "CFGNorm",
+        "_meta": {
+          "title": "CFGNorm"
+        }
+      },
+      "236": {
+        "inputs": {
+          "anything": [
+            "229",
+            0
+          ]
+        },
+        "class_type": "easy cleanGpuUsed",
+        "_meta": {
+          "title": "Clean VRAM Used"
+        }
+      },
+      "237": {
+        "inputs": {
+          "lora_name": "Qwen/Qwen-Image-Lightning-4steps-V2.0.safetensors",
+          "strength_model": 1.0000000000000002,
+          "model": [
+            "238",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "Load LoRA"
+        }
+      },
+      "238": {
+        "inputs": {
+          "unet_name": "FireRed-Image-Edit-1.1-transformer.safetensors",
+          "weight_dtype": "default"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "Load Diffusion Model"
+        }
+      },
+      "244": {
+        "inputs": {
+          "prompt": [
+            "125",
+            0
+          ],
+          "clip": [
+            "231",
+            0
+          ],
+          "vae": [
+            "232",
+            0
+          ],
+          "image1": [
+            "227",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "245": {
+        "inputs": {
+          "prompt": "",
+          "clip": [
+            "231",
+            0
+          ],
+          "vae": [
+            "232",
+            0
+          ],
+          "image1": [
+            "227",
+            0
+          ]
+        },
+        "class_type": "TextEncodeQwenImageEditPlus",
+        "_meta": {
+          "title": "TextEncodeQwenImageEditPlus"
+        }
+      },
+      "252": {
+        "inputs": {
+          "width": 928,
+          "height": 1152,
+          "batch_size": 1
+        },
+        "class_type": "EmptyLatentImage",
+        "_meta": {
+          "title": "Empty Latent Image"
+        }
+      },
+      "254": {
+        "inputs": {
+          "image": "client_input.jpg"
+        },
+        "class_type": "LoadImage",
+        "_meta": {
+          "title": "Load Image"
+        }
+      },
+      "259": {
+        "inputs": {},
+        "class_type": "DisableNoise",
+        "_meta": {
+          "title": "DisableNoise"
+        }
+      },
+      "260": {
+        "inputs": {
+          "clip_name1": "clip_l.safetensors",
+          "clip_name2": "t5xxl_fp8_e4m3fn.safetensors",
+          "type": "flux",
+          "device": "default"
+        },
+        "class_type": "DualCLIPLoader",
+        "_meta": {
+          "title": "DualCLIPLoader"
+        }
+      },
+      "261": {
+        "inputs": {
+          "unet_name": "flux1-dev-fp8.safetensors",
+          "weight_dtype": "fp8_e4m3fn"
+        },
+        "class_type": "UNETLoader",
+        "_meta": {
+          "title": "Load Diffusion Model"
+        }
+      },
+      "262": {
+        "inputs": {
+          "vae_name": "ae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "Load VAE"
+        }
+      },
+      "263": {
+        "inputs": {
+          "noise": [
+            "276",
+            0
+          ],
+          "guider": [
+            "268",
+            0
+          ],
+          "sampler": [
+            "265",
+            0
+          ],
+          "sigmas": [
+            "264",
+            0
+          ],
+          "latent_image": [
+            "272",
+            0
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "SamplerCustomAdvanced"
+        }
+      },
+      "264": {
+        "inputs": {
+          "sigmas": [
+            "269",
+            0
+          ]
+        },
+        "class_type": "FlipSigmas",
+        "_meta": {
+          "title": "FlipSigmas"
+        }
+      },
+      "265": {
+        "inputs": {
+          "gamma": 0.5,
+          "seed": 0
+        },
+        "class_type": "FluxForwardODESampler",
+        "_meta": {
+          "title": "Flux Forward ODE Sampler"
+        }
+      },
+      "266": {
+        "inputs": {
+          "max_shift": 1.15,
+          "base_shift": 0.5,
+          "width": [
+            "275",
+            0
+          ],
+          "height": [
+            "275",
+            1
+          ],
+          "model": [
+            "261",
+            0
+          ]
+        },
+        "class_type": "InFluxModelSamplingPred",
+        "_meta": {
+          "title": "Inverse Flux Model Pred"
+        }
+      },
+      "267": {
+        "inputs": {
+          "guidance": 0,
+          "conditioning": [
+            "273",
+            0
+          ]
+        },
+        "class_type": "FluxDeGuidance",
+        "_meta": {
+          "title": "Flux DeGuidance"
+        }
+      },
+      "268": {
+        "inputs": {
+          "model": [
+            "266",
+            0
+          ],
+          "conditioning": [
+            "267",
+            0
+          ]
+        },
+        "class_type": "BasicGuider",
+        "_meta": {
+          "title": "BasicGuider"
+        }
+      },
+      "269": {
+        "inputs": {
+          "scheduler": "simple",
+          "steps": 28,
+          "denoise": 1,
+          "model": [
+            "261",
+            0
+          ]
+        },
+        "class_type": "BasicScheduler",
+        "_meta": {
+          "title": "BasicScheduler"
+        }
+      },
+      "270": {
+        "inputs": {
+          "upscale_method": "bicubic",
+          "width": [
+            "275",
+            0
+          ],
+          "height": [
+            "275",
+            1
+          ],
+          "crop": "center",
+          "image": [
+            "236",
+            0
+          ]
+        },
+        "class_type": "ImageScale",
+        "_meta": {
+          "title": "Upscale Image"
+        }
+      },
+      "271": {
+        "inputs": {
+          "noise": [
+            "259",
+            0
+          ],
+          "guider": [
+            "281",
+            0
+          ],
+          "sampler": [
+            "282",
+            0
+          ],
+          "sigmas": [
+            "278",
+            0
+          ],
+          "latent_image": [
+            "263",
+            0
+          ]
+        },
+        "class_type": "SamplerCustomAdvanced",
+        "_meta": {
+          "title": "SamplerCustomAdvanced"
+        }
+      },
+      "272": {
+        "inputs": {
+          "pixels": [
+            "270",
+            0
+          ],
+          "vae": [
+            "262",
+            0
+          ]
+        },
+        "class_type": "VAEEncode",
+        "_meta": {
+          "title": "VAE Encode"
+        }
+      },
+      "273": {
+        "inputs": {
+          "text": "",
+          "clip": [
+            "260",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Prompt)"
+        }
+      },
+      "275": {
+        "inputs": {
+          "image": [
+            "236",
+            0
+          ]
+        },
+        "class_type": "GetImageSize+",
+        "_meta": {
+          "title": "🔧 Get Image Size"
+        }
+      },
+      "276": {
+        "inputs": {},
+        "class_type": "DisableNoise",
+        "_meta": {
+          "title": "DisableNoise"
+        }
+      },
+      "277": {
+        "inputs": {
+          "max_shift": 1.15,
+          "base_shift": 0.5,
+          "width": [
+            "275",
+            0
+          ],
+          "height": [
+            "275",
+            1
+          ],
+          "reverse_ode": true,
+          "model": [
+            "285",
+            0
+          ]
+        },
+        "class_type": "OutFluxModelSamplingPred",
+        "_meta": {
+          "title": "Outverse Flux Model Pred"
+        }
+      },
+      "278": {
+        "inputs": {
+          "scheduler": "simple",
+          "steps": 28,
+          "denoise": 1,
+          "model": [
+            "277",
+            0
+          ]
+        },
+        "class_type": "BasicScheduler",
+        "_meta": {
+          "title": "BasicScheduler"
+        }
+      },
+      "279": {
+        "inputs": {
+          "text": [
+            "303",
+            0
+          ],
+          "clip": [
+            "260",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIP Text Encode (Prompt)"
+        }
+      },
+      "280": {
+        "inputs": {
+          "guidance": 3.5,
+          "conditioning": [
+            "279",
+            0
+          ]
+        },
+        "class_type": "FluxDeGuidance",
+        "_meta": {
+          "title": "Flux DeGuidance"
+        }
+      },
+      "281": {
+        "inputs": {
+          "model": [
+            "277",
+            0
+          ],
+          "conditioning": [
+            "280",
+            0
+          ]
+        },
+        "class_type": "BasicGuider",
+        "_meta": {
+          "title": "BasicGuider"
+        }
+      },
+      "282": {
+        "inputs": {
+          "eta": 0.9,
+          "start_step": 0,
+          "end_step": 20,
+          "eta_trend": "linear_increase",
+          "model": [
+            "277",
+            0
+          ],
+          "latent_image": [
+            "272",
+            0
+          ]
+        },
+        "class_type": "FluxReverseODESampler",
+        "_meta": {
+          "title": "Flux Reverse ODE Sampler"
+        }
+      },
+      "284": {
+        "inputs": {
+          "lora_name": "Flux/art-texture-painting-v1.safetensors",
+          "strength_model": 1.1000000000000003,
+          "strength_clip": 1,
+          "model": [
+            "261",
+            0
+          ],
+          "clip": [
+            "260",
+            0
+          ]
+        },
+        "class_type": "LoraLoader",
+        "_meta": {
+          "title": "Load LoRA (Model and CLIP)"
+        }
+      },
+      "285": {
+        "inputs": {
+          "lora_name": "Flux/flux-oilpainting-v1-3.safetensors",
+          "strength_model": 0.7000000000000002,
+          "strength_clip": 1,
+          "model": [
+            "284",
+            0
+          ],
+          "clip": [
+            "284",
+            1
+          ]
+        },
+        "class_type": "LoraLoader",
+        "_meta": {
+          "title": "Load LoRA (Model and CLIP)"
+        }
+      },
+      "288": {
+        "inputs": {
+          "samples": [
+            "271",
+            0
+          ],
+          "vae": [
+            "262",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAE Decode"
+        }
+      },
+      "291": {
+        "inputs": {
+          "method": "mkl",
+          "strength": 1,
+          "multithread": true,
+          "image_ref": [
+            "236",
+            0
+          ],
+          "image_target": [
+            "288",
+            0
+          ]
+        },
+        "class_type": "ColorMatch",
+        "_meta": {
+          "title": "Color Match"
+        }
+      },
+      "297": {
+        "inputs": {
+          "upscale_by": 2,
+          "rescale_method": "bicubic",
+          "upscale_model": [
+            "298",
+            0
+          ],
+          "image": [
+            "291",
+            0
+          ]
+        },
+        "class_type": "UpscaleImageByUsingModel",
+        "_meta": {
+          "title": "Upscale Image By (Using Model)"
+        }
+      },
+      "298": {
+        "inputs": {
+          "model_name": "4xNomos8kSCHAT-L.pth"
+        },
+        "class_type": "UpscaleModelLoader",
+        "_meta": {
+          "title": "Load Upscale Model"
+        }
+      },
+      "299": {
+        "inputs": {
+          "aspect_ratio": "custom",
+          "proportional_width": [
+            "301",
+            0
+          ],
+          "proportional_height": [
+            "301",
+            1
+          ],
+          "fit": "letterbox",
+          "method": "bicubic",
+          "round_to_multiple": "8",
+          "scale_to_side": "None",
+          "scale_to_length": 2480,
+          "background_color": "#000000",
+          "image": [
+            "297",
+            0
+          ]
+        },
+        "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+        "_meta": {
+          "title": "LayerUtility: ImageScaleByAspectRatio V2"
+        }
+      },
+      "300": {
+        "inputs": {
+          "filename_prefix": "Mixlab",
+          "metadata": "disable",
+          "images": [
+            "299",
+            0
+          ]
+        },
+        "class_type": "SaveImageAndMetadata_",
+        "_meta": {
+          "title": "Save Image Output ♾️Mixlab"
+        }
+      },
+      "301": {
+        "inputs": {
+          "image": [
+            "291",
+            0
+          ]
+        },
+        "class_type": "GetImageSize+",
+        "_meta": {
+          "title": "🔧 Get Image Size"
+        }
+      },
+      "303": {
+        "inputs": {
+          "delimiter": " ",
+          "string1": [
+            "304",
+            0
+          ],
+          "string2": [
+            "125",
+            0
+          ]
+        },
+        "class_type": "JoinStrings",
+        "_meta": {
+          "title": "Join Strings"
+        }
+      },
+      "304": {
+        "inputs": {
+          "value": "Flat wind illustration，Flat wind illustration,music festival poster,"
+        },
+        "class_type": "PrimitiveString",
+        "_meta": {
+          "title": "String"
+        }
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@ loras/Qwen|Qwen-Image-Lightning-4steps-V2.0.safetensors|https://huggingface.co/l
 loras/Flux|art-texture-painting-v1.safetensors|https://huggingface.co/datasets/Robin9527/LoRA/resolve/main/Flux/art-texture-painting-v1.safetensors|file
 loras/Flux|flux-oilpainting-v1-3.safetensors|https://huggingface.co/datasets/Robin9527/LoRA/resolve/main/Flux/flux-oilpainting-v1-3.safetensors|file
 loras/Flux2-Klein|impressionist-k9_2.safetensors|https://huggingface.co/datasets/Robin9527/LoRA/resolve/main/Flux2-Klein/impressionist-k9_2.safetensors|file
-unet|flux-2-klein-9b-nvfp4.safetensors|https://huggingface.co/black-forest-labs/FLUX.2-klein-9b-nvfp4/resolve/main/flux-2-klein-9b-nvfp4.safetensors|file
+unet|flux-2-klein-9b.safetensors|https://huggingface.co/black-forest-labs/FLUX.2-klein-9B/resolve/main/flux-2-klein-9b.safetensors|file
 unet|FireRed-Image-Edit-1.1-transformer.safetensors|https://huggingface.co/FireRedTeam/FireRed-Image-Edit-1.1-ComfyUI/resolve/main/FireRed-Image-Edit-1.1-transformer.safetensors|file
 unet|flux1-dev-fp8.safetensors|https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8.safetensors|file
 vae|flux2-vae.safetensors|https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors|file

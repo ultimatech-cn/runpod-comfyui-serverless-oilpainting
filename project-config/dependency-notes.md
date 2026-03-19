@@ -51,7 +51,7 @@ Important note:
 | `Qwen-Rapid-AIO-NSFW-v18.safetensors` | `checkpoint` | portrait |
 | `Qwen3-VL-4B-Instruct` | `other` | Hugging Face repo dependency, preload recommended |
 | `clip_l.safetensors` | `clip` | pet |
-| `flux-2-klein-9b-nvfp4.safetensors` | `unet` | portrait |
+| `flux-2-klein-9b.safetensors` | `unet` | portrait |
 | `flux2-vae.safetensors` | `vae` | portrait |
 | `impressionist-k9_2.safetensors` | `lora` | portrait, manually resolved from page title |
 | `qwen_2.5_vl_7b_fp8_scaled.safetensors` | `clip` | shared |

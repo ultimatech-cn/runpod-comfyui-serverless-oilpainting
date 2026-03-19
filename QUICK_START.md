@@ -47,6 +47,28 @@ Endpoints:
 
 Use verified links here. Do not blindly trust workflow-exported model names.
 
+If Hugging Face returns `401`, the repo or file usually requires:
+
+- accepted model license on the Hugging Face web page
+- a valid `HF_TOKEN` in the pod shell
+
+Set the token before downloading:
+
+```bash
+export HF_TOKEN=hf_xxx_your_token_here
+```
+
+Single protected file example:
+
+```bash
+curl -L --fail \
+  -H "Authorization: Bearer ${HF_TOKEN}" \
+  -o /workspace/models/unet/flux-2-klein-9b.safetensors \
+  "https://huggingface.co/black-forest-labs/FLUX.2-klein-9B/resolve/main/flux-2-klein-9b.safetensors"
+```
+
+The project download script also reads `HF_TOKEN` automatically.
+
 If your temporary pod mounts the Network Volume at `/runpod-volume`:
 
 ```bash
