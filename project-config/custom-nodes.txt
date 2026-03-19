@@ -1,9 +1,12 @@
-# Supported formats:
-#   registry:<node-name>
-#   git:<repo-url>
-#   git:<repo-url>|<branch>
-#
-# Replace these examples with the nodes required by your workflow.
-registry:comfyui-manager
-# git:https://github.com/example/ComfyUI-Custom-Node.git
-# git:https://github.com/example/ComfyUI-Custom-Node.git|main
+# Baroque project custom node baseline.
+# One repo per line.
+git:https://github.com/IuvenisSapiens/ComfyUI_Qwen3-VL-Instruct
+git:https://github.com/TheBill2001/comfyui-upscale-by-model
+git:https://github.com/chflame163/ComfyUI_LayerStyle
+git:https://github.com/cubiq/ComfyUI_essentials
+git:https://github.com/kijai/ComfyUI-KJNodes
+git:https://github.com/logtd/ComfyUI-Fluxtapoz
+git:https://github.com/princepainter/Comfyui-PainterFluxImageEdit
+git:https://github.com/rgthree/rgthree-comfy
+git:https://github.com/shadowcz007/comfyui-mixlab-nodes
+git:https://github.com/yolain/ComfyUI-Easy-Use

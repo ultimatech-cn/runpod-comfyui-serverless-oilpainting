@@ -75,6 +75,10 @@ if [[ -f "$manifest_path" ]]; then
 fi
 
 if [[ -f "$workflow_path" ]]; then
+  if grep -q 'ReplaceWithApiWorkflowExport' "$workflow_path"; then
+    fail "workflow is still using the template placeholder export"
+  fi
+
   if grep -q '\\' "$workflow_path"; then
     warn "workflow contains backslashes; review Windows-style paths"
   fi
@@ -89,12 +93,18 @@ if [[ -f "$workflow_path" ]]; then
       fi
     done
     if [[ $found -eq 0 ]]; then
-      warn "workflow references model not found in manifest: $ref"
+      fail "workflow references model not found in manifest: $ref"
     fi
   done
 
   if ! grep -q 'SaveImage\|VHS_VideoCombine\|SaveAnimatedWEBP\|SaveWEBM\|SaveVideo' "$workflow_path"; then
-    warn "workflow does not appear to contain a known output node"
+    fail "workflow does not appear to contain a known output node"
+  fi
+fi
+
+if [[ -f "$manifest_path" ]]; then
+  if grep -q 'example\.com/example-' "$manifest_path"; then
+    fail "model manifest still contains template example.com entries"
   fi
 fi
 

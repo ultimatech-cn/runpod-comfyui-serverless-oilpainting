@@ -9,6 +9,12 @@ Update these files first:
 - `project-inputs/workflow-api.json`
 - `.runpod/hub.json`
 
+Before you lock the model manifest:
+
+- separate `workflow_ref` from the final verified source
+- manually verify custom-node repos at repo level, not only by node count
+- mirror unstable LoRA files to your own Hugging Face repo when needed
+
 ## 2. Run the Readiness Check
 
 ```bash
@@ -38,6 +44,8 @@ Endpoints:
 - ComfyUI: <http://localhost:8188>
 
 ## 5. Download Models to the Mounted Volume
+
+Use verified links here. Do not blindly trust workflow-exported model names.
 
 If your temporary pod mounts the Network Volume at `/runpod-volume`:
 
@@ -75,3 +83,11 @@ Minimal payload:
 ```
 
 Real payloads should usually include a full API-exported workflow and optional `images`.
+
+## 8. Delivery Reality
+
+This template assumes a semi-automated workflow:
+
+- extraction tools generate drafts
+- humans verify repo grouping and model truth
+- final delivery uses stable mirrored links when required

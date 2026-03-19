@@ -1,29 +1,52 @@
-# RunPod ComfyUI Serverless Template
+# Baroque Oil Painting Serverless
 
-A reusable template for deploying ComfyUI workflows on RunPod Serverless.
+This repository is the Baroque oil painting RunPod ComfyUI project derived from the serverless template.
 
-This repository is intentionally generic. It keeps the runtime core that usually works across projects and pushes project-specific changes into a small set of configuration files.
+The repo now carries project-specific workflow, custom node, and model manifests for two related workflows:
 
-## What Stays Stable
+- portrait workflow
+- pet workflow
 
-- `handler.py`: RunPod handler contract and ComfyUI execution loop
-- `src/start.sh`: startup orchestration and model path detection
-- `Dockerfile`: image build entrypoint for custom nodes and runtime tools
-- `scripts/download-models-to-volume.sh`: model download helper for temporary pods
+## Start Here
 
-## What You Change Per Project
+Read these in order:
+
+1. `QUICK_START.md`
+2. `SOP_RUNBOOK.md`
+3. `PITFALLS.md`
+4. `MANUAL_CHECKLIST.md`
+5. `scripts/README.md`
+6. `AGENTS.md`
+
+## Current Project Inputs
 
 - `project-config/custom-nodes.txt`
 - `project-config/model-manifest.txt`
+- `project-config/model-truth.md`
+- `project-config/dependency-notes.md`
 - `project-inputs/workflow-api.json`
+- `project-inputs/workflow-pet-api.json`
+- `project-inputs/workflow-portrait-api.json`
 - `project-inputs/test-payload-minimal.json`
 - `project-inputs/test-payload-with-image.json`
 - `.runpod/hub.json`
 
+`project-inputs/workflow-api.json` currently mirrors the pet workflow as the default entry.
+
+## Stable Runtime Layer
+
+- `handler.py`
+- `src/start.sh`
+- `Dockerfile`
+- `scripts/download-models-to-volume.sh`
+- `scripts/install-custom-nodes.sh`
+
+Change these only when there is a real deployment issue to solve.
+
 ## Repository Layout
 
 ```text
-runpod-comfyui-serverless-template/
+runpod-comfyui-serverless-oilpainting/
   .runpod/
   project-config/
   project-inputs/
@@ -36,24 +59,21 @@ runpod-comfyui-serverless-template/
   handler.py
   README.md
   QUICK_START.md
+  SOP_SIMPLE.md
+  SOP_RUNBOOK.md
   PITFALLS.md
   MANUAL_CHECKLIST.md
   DELIVERY_CHECKLIST.md
+  AGENTS.md
 ```
 
-## Recommended Operating Model
+## Working Rules
 
-- Install custom nodes into the image
-- Put models on a Network Volume
-- Keep workflow-specific logic in the workflow JSON before touching `handler.py`
-- Treat volume verification as a required manual step, not an optional check
-
-## First Read
-
-- `QUICK_START.md`
-- `PITFALLS.md`
-- `MANUAL_CHECKLIST.md`
-- `scripts/README.md`
+- Keep workflow-specific logic in the workflow JSON before touching `handler.py`.
+- Install custom nodes into the image.
+- Put models on a Network Volume.
+- Keep workflow model names aligned with the Hugging Face filenames in `project-config/model-manifest.txt`.
+- Use `project-config/model-truth.md` when auditing model identity or changing download sources.
 
 ## Request Contract
 

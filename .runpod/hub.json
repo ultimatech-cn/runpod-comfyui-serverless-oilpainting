@@ -1,6 +1,6 @@
 {
-  "title": "ComfyUI Serverless Template",
-  "description": "Generic RunPod Serverless template for ComfyUI workflows with config-driven custom nodes and Network Volume models.",
+  "title": "Baroque Oil Painting Serverless",
+  "description": "RunPod Serverless project for Baroque-style portrait and pet oil painting workflows with normalized model and custom node manifests.",
   "type": "serverless",
   "category": "image",
   "iconUrl": "",
