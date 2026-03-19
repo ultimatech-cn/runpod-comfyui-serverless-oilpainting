@@ -21,3 +21,4 @@ vae|flux2-vae.safetensors|https://huggingface.co/Comfy-Org/flux2-dev/resolve/mai
 vae|qwen_image_vae.safetensors|https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors|file
 vae|ae.safetensors|https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors|file
 upscale_models|4xNomos8kSCHAT-L.pth|https://huggingface.co/FelipeMurguia/4xNomos8kSCHAT-L/resolve/b7d4549997b0d4856412c8200b31878122e82776/4xNomos8kSCHAT-L.pth|file
+prompt_generator|Qwen3-VL-4B-Instruct|Qwen/Qwen3-VL-4B-Instruct|hf_snapshot

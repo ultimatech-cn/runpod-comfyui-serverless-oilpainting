@@ -4,7 +4,7 @@ set -euo pipefail
 # Manifest format:
 #   relative_path|filename|url|action
 # Actions:
-#   file | unzip | untar
+#   file | unzip | untar | hf_snapshot
 
 volume_root="${1:-/runpod-volume}"
 manifest_path="${2:-project-config/model-manifest.txt}"
@@ -91,6 +91,35 @@ download_file() {
   return 127
 }
 
+download_hf_snapshot() {
+  local repo_id="$1"
+  local target_dir="$2"
+
+  python3 - "$repo_id" "$target_dir" <<'PY'
+import os
+import subprocess
+import sys
+
+repo_id = sys.argv[1]
+target_dir = sys.argv[2]
+
+try:
+    from huggingface_hub import snapshot_download
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "huggingface_hub"])
+    from huggingface_hub import snapshot_download
+
+token = os.environ.get("HF_TOKEN") or None
+
+snapshot_download(
+    repo_id=repo_id,
+    local_dir=target_dir,
+    local_dir_use_symlinks=False,
+    token=token,
+)
+PY
+}
+
 trim() {
   local value="$1"
   value="${value#"${value%%[![:space:]]*}"}"
@@ -134,6 +163,26 @@ while IFS= read -r raw_line || [[ -n "${raw_line}" ]]; do
         failures+=("${relative_path}|${filename}|${url}|file")
         continue
       fi
+      downloaded_count=$((downloaded_count + 1))
+      ;;
+    hf_snapshot)
+      target_snapshot_dir="${target_dir}/${filename}"
+      marker_path="${target_snapshot_dir}/.snapshot-complete"
+      if [[ -f "${marker_path}" ]]; then
+        echo "download-models-to-volume: skip existing snapshot ${target_snapshot_dir}"
+        skipped_count=$((skipped_count + 1))
+        continue
+      fi
+      rm -rf "${target_snapshot_dir}"
+      mkdir -p "${target_snapshot_dir}"
+      echo "download-models-to-volume: downloading Hugging Face repo ${url} -> ${target_snapshot_dir}"
+      if ! download_hf_snapshot "${url}" "${target_snapshot_dir}"; then
+        echo "download-models-to-volume: failed Hugging Face snapshot ${url}" >&2
+        rm -rf "${target_snapshot_dir}"
+        failures+=("${relative_path}|${filename}|${url}|hf_snapshot")
+        continue
+      fi
+      touch "${marker_path}"
       downloaded_count=$((downloaded_count + 1))
       ;;
     unzip)

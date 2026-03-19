@@ -67,7 +67,7 @@ if [[ -f "$manifest_path" ]]; then
       continue
     fi
     case "${action:-file}" in
-      file|unzip|untar) ;;
+      file|unzip|untar|hf_snapshot) ;;
       *) fail "unsupported manifest action '${action}' in line: $line" ;;
     esac
     manifest_models+=("$filename")
@@ -94,6 +94,21 @@ if [[ -f "$workflow_path" ]]; then
     done
     if [[ $found -eq 0 ]]; then
       fail "workflow references model not found in manifest: $ref"
+    fi
+  done
+
+  mapfile -t workflow_named_refs < <(grep -oE '"model"[[:space:]]*:[[:space:]]*"[^"]+"' "$workflow_path" | sed -E 's/.*"model"[[:space:]]*:[[:space:]]*"([^"]+)".*/\1/' | sort -u || true)
+  for ref in "${workflow_named_refs[@]}"; do
+    [[ "$ref" == *.* ]] && continue
+    found=0
+    for manifest_model in "${manifest_models[@]}"; do
+      if [[ "$ref" == "$manifest_model" ]]; then
+        found=1
+        break
+      fi
+    done
+    if [[ $found -eq 0 ]]; then
+      warn "workflow references named model not found in manifest: $ref"
     fi
   done
 

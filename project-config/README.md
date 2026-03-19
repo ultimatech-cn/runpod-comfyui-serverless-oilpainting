@@ -10,4 +10,11 @@ Keep per-project dependencies here.
 - `dependency-notes.md`: merged workflow dependency summary
 - `env.example`: environment variable template for project notes
 
+`model-manifest.txt` supports these actions:
+
+- `file`
+- `unzip`
+- `untar`
+- `hf_snapshot`: clone a Hugging Face repo snapshot into the target model directory
+
 Do not hardcode project-specific dependencies directly into `Dockerfile` unless there is no practical alternative.

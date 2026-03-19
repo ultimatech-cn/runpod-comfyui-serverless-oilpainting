@@ -7,7 +7,7 @@ Final merged repo count: `10`
 | Repo | Covered nodes |
 | --- | --- |
 | `https://github.com/IuvenisSapiens/ComfyUI_Qwen3-VL-Instruct` | `Qwen3_VQA` |
-| `https://github.com/TheBill2001/comfyui-upscale-by-model` | `UpscaleImageByUsingModel` |
+| `https://github.com/ronn1xG/comfyui-upscale-by-model` | `UpscaleImageByUsingModel` |
 | `https://github.com/chflame163/ComfyUI_LayerStyle` | `LayerUtility: PurgeVRAM V2`, `LayerUtility: ImageScaleByAspectRatio V2` |
 | `https://github.com/cubiq/ComfyUI_essentials` | `GetImageSize+` |
 | `https://github.com/kijai/ComfyUI-KJNodes` | `ColorMatch`, `JoinStrings` |

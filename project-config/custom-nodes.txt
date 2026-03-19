@@ -1,7 +1,7 @@
 # Baroque project custom node baseline.
 # One repo per line.
 git:https://github.com/IuvenisSapiens/ComfyUI_Qwen3-VL-Instruct
-git:https://github.com/TheBill2001/comfyui-upscale-by-model
+git:https://github.com/ronn1xG/comfyui-upscale-by-model
 git:https://github.com/chflame163/ComfyUI_LayerStyle
 git:https://github.com/cubiq/ComfyUI_essentials
 git:https://github.com/kijai/ComfyUI-KJNodes

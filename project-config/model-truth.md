@@ -32,7 +32,7 @@ Rules:
 | `ae.safetensors` | `ae.safetensors` | `vae` | `vae` | `https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors` | verified | pet, normalized from old workflow ref `ae.sft` |
 | `qwen_image_vae.safetensors` | `qwen_image_vae.safetensors` | `vae` | `vae` | `https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors` | verified | pet |
 | `4xNomos8kSCHAT-L.pth` | `4xNomos8kSCHAT-L.pth` | `upscale_model` | `upscale_models` | `https://huggingface.co/FelipeMurguia/4xNomos8kSCHAT-L/resolve/b7d4549997b0d4856412c8200b31878122e82776/4xNomos8kSCHAT-L.pth` | verified | pet |
-| `Qwen3-VL-4B-Instruct` | `Qwen/Qwen3-VL-4B-Instruct` | `huggingface_repo` | `prompt_generator/Qwen3-VL-4B-Instruct` | `https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/tree/main` | verified | predownload recommended, repo dependency not a single-file model |
+| `Qwen3-VL-4B-Instruct` | `Qwen/Qwen3-VL-4B-Instruct` | `huggingface_repo` | `prompt_generator/Qwen3-VL-4B-Instruct` | `https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/tree/main` | verified | now included in `model-manifest.txt` as `hf_snapshot` |
 
 ## Notes
 
