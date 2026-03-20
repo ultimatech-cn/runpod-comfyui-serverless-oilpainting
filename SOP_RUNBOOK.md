@@ -26,6 +26,8 @@ Treat node repo grouping as higher risk than model-link cleanup, because repo mi
 - confirm every required model is in `project-config/model-manifest.txt` or explicitly marked as preloaded
 - confirm the custom-node list is repo-level correct, not only node-level complete
 - confirm LoRA links are stable enough for delivery or mirrored to your own Hugging Face repo
+- confirm custom-node Python dependencies against the base image, especially shared packages such as `transformers`, `huggingface_hub`, `accelerate`, `opencv-python`, and `opencv-contrib-python`
+- if a node requires newer shared dependencies, prefer a test image tag first instead of changing the primary delivery image immediately
 
 ## Recommended Model Workflow
 
@@ -47,3 +49,11 @@ Treat node repo grouping as higher risk than model-link cleanup, because repo mi
 - confirm startup logs show the detected models root
 - confirm a known-good payload returns media in `output.images[]`
 - confirm large outputs use S3 if base64 is too large
+
+## Real Case Lessons
+
+- A workflow that runs locally can still fail on RunPod if the cloud model file with the same filename is not actually the same build or quantization variant.
+- When `CLIPLoader` fails with `state_dict` size mismatch, treat it as a model identity or core-loader compatibility problem before blaming prompt or payload shape.
+- Upgrading only `transformers` was not enough for the portrait workflow issue. The decisive step was moving from `runpod/worker-comfyui:5.7.1-base-cuda12.8.1` to `runpod/worker-comfyui:latest-base-cuda12.8.1`.
+- After upgrading the ComfyUI core, startup failed until missing runtime dependencies were added. The confirmed extra packages were `opencv-contrib-python` and `pyOpenSSL`, with `cryptography` pinned to a RunPod-compatible range.
+- For Qwen3-related nodes, keep `transformers` pinned below `5` unless you have already verified the full node set against `5.x`.

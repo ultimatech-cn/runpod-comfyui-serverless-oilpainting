@@ -1,4 +1,4 @@
-﻿FROM runpod/worker-comfyui:5.7.1-base-cuda12.8.1
+﻿FROM runpod/worker-comfyui:latest-base-cuda12.8.1
 
 ENV COMFYUI_PATH=/comfyui
 ENV DEBIAN_FRONTEND=noninteractive
@@ -34,15 +34,16 @@ RUN git config --global --add safe.directory '*' && \
 
 RUN install-custom-nodes /project-config/custom-nodes.txt
 
-# The Qwen3 custom node requires a newer Hugging Face stack than the base image.
-# Keep torch/comfy pinned by the base image and only upgrade the Qwen3-related
-# Python packages needed by ComfyUI_Qwen3-VL-Instruct.
+# Keep the base image's torch/comfy stack intact and only add the newer
+# Qwen3-related packages needed by ComfyUI_Qwen3-VL-Instruct.
 RUN python3 -m pip install --no-cache-dir --upgrade \
-    "transformers>=4.57.1" \
-    huggingface_hub \
+    "transformers>=4.57.1,<5" \
     accelerate \
     optimum \
     av \
     qwen-vl-utils \
     opencv-python \
+    opencv-contrib-python \
+    "cryptography>=45.0.7,<46" \
+    "pyOpenSSL==25.2.0" \
     bitsandbytes

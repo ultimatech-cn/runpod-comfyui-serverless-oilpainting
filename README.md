@@ -33,6 +33,20 @@ Read these in order:
 
 `project-inputs/workflow-api.json` currently mirrors the pet workflow as the default entry.
 
+## Current Verified Runtime
+
+The currently verified image for the Baroque project is:
+
+- `ultimatech/runpod-comfyui-serverless-oilpainting:v0.1.5`
+
+This image includes:
+
+- newer RunPod ComfyUI base image
+- `transformers` pinned to `<5`
+- extra runtime packages required during real endpoint debugging:
+  - `opencv-contrib-python`
+  - `pyOpenSSL`
+
 ## Stable Runtime Layer
 
 - `handler.py`

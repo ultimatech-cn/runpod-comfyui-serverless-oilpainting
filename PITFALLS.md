@@ -70,3 +70,50 @@ Always verify:
 - the model count
 - key model filenames
 - endpoint startup logs
+
+## Same Filename Does Not Guarantee Same Model
+
+If a workflow runs locally but the endpoint fails on a loader node, do not assume the model file is equivalent just because the filename matches.
+
+Typical symptom:
+
+- `CLIPLoader` or `UNETLoader` raises `state_dict` size mismatch
+
+Treat this as a model identity mismatch first:
+
+- compare the exact source URL
+- compare file size
+- compare hash if needed
+- prefer the locally verified file over a guessed public mirror
+
+## Shared Python Dependencies Can Break Otherwise Correct Workflows
+
+Custom nodes may silently rely on shared Python packages that are older or missing in the base image.
+
+High-risk packages:
+
+- `transformers`
+- `huggingface_hub`
+- `accelerate`
+- `opencv-python`
+- `opencv-contrib-python`
+- `pyOpenSSL`
+
+Symptoms include:
+
+- node import failures during startup
+- ComfyUI never becoming reachable on port `8188`
+- requests or OpenSSL warnings before handler startup
+
+## Upgrading ComfyUI Core Can Fix Loader Issues And Create Startup Issues
+
+This happened in the Baroque portrait project:
+
+- old core: portrait workflow failed on `CLIPLoader` model compatibility
+- new core: loader issue moved forward, but ComfyUI startup then failed due to missing runtime dependencies
+
+When you upgrade the ComfyUI base image:
+
+- re-check startup logs from the beginning
+- do not assume the first old error is still the active blocker
+- separate `workflow execution` errors from `ComfyUI failed to start` errors
