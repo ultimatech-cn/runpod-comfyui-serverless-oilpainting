@@ -8,3 +8,6 @@ output/
 data/
 .env
 *.local
+local-debug/logs/
+local-debug/scratch/
+!local-debug/README.md
